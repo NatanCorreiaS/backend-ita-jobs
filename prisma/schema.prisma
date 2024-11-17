@@ -42,10 +42,10 @@ model enterprises {
 model users_job {
   id Int @id @default(autoincrement())
   userId Int
-  enterpriseId Int
+  jobId Int
 
   user users @relation(fields: [userId], references: [id])
-  enterprise enterprises @relation(fields: [enterpriseId], references: [id])
+  enterprise enterprises @relation(fields: [jobId], references: [id])
 }
 
 enum Gender {

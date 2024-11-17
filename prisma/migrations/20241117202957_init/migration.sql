@@ -29,7 +29,7 @@ CREATE TABLE "enterprises" (
 CREATE TABLE "users_job" (
     "id" SERIAL NOT NULL,
     "userId" INTEGER NOT NULL,
-    "enterpriseId" INTEGER NOT NULL,
+    "jobId" INTEGER NOT NULL,
 
     CONSTRAINT "users_job_pkey" PRIMARY KEY ("id")
 );
@@ -37,11 +37,8 @@ CREATE TABLE "users_job" (
 -- CreateIndex
 CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
 
--- CreateIndex
-CREATE UNIQUE INDEX "enterprises_email_key" ON "enterprises"("email");
-
 -- AddForeignKey
 ALTER TABLE "users_job" ADD CONSTRAINT "users_job_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "users_job" ADD CONSTRAINT "users_job_enterpriseId_fkey" FOREIGN KEY ("enterpriseId") REFERENCES "enterprises"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "users_job" ADD CONSTRAINT "users_job_jobId_fkey" FOREIGN KEY ("jobId") REFERENCES "enterprises"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
