@@ -1,14 +1,21 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { UserJobService } from './user-job.service';
-import { CreateUserJobDto } from './dto/create-user-job.dto';
-import { UpdateUserJobDto } from './dto/update-user-job.dto';
+import { Prisma } from '@prisma/client';
 
 @Controller('user-job')
 export class UserJobController {
   constructor(private readonly userJobService: UserJobService) {}
 
   @Post()
-  create(@Body() createUserJobDto: CreateUserJobDto) {
+  create(@Body() createUserJobDto: Prisma.users_jobCreateInput) {
     return this.userJobService.create(createUserJobDto);
   }
 
@@ -23,7 +30,10 @@ export class UserJobController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserJobDto: UpdateUserJobDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateUserJobDto: Prisma.users_jobUpdateInput,
+  ) {
     return this.userJobService.update(+id, updateUserJobDto);
   }
 
