@@ -48,6 +48,7 @@ A tabela enterprises possui os seguintes parâmetros:
 ```
 4. ATUALIZAR UMA EMPRESA, https://example/api/enterprises/{id} com o método PATCH, substitua {id} pelo identificador da empresa e no body deve ter os seguintes campos opcionais:
 ```json
+// NÃO É NECESSÁRIO TODOS OS CAMPOS
 "name": "Nome do empresa",
 "email": "Email da empresa",
 "jobTitle": "Nome da vaga",
@@ -69,6 +70,7 @@ Essa tabela possui 3 parâmetros:
 ```
 4. ATUALIZANDO UMA RELAÇÃO, https://example/api/user-job/{id}, com o método PATCH, substitua {id} pelo identificador da relação, o body deve ter os seguintes campos opcionais:
 ```json
+// NÃO É NECESSÁRIO TODOS OS CAMPOS
 "userId": "Identificador do usuário na tabela users",
 "jobId ": "Identificador da vaga na tabela enterprises"
 ```
